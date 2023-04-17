@@ -1,0 +1,14 @@
+- What happens if users choose “Cancel”?
+=> The dialog will be no by default
+- How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do”
+and “I don’t”
+=> We can do that by adding arguments to the JOptionPane.showOptionDialog ~ showOptionDialog(Component, Object, String, int, int, Icon, Object[], Object) 
+To be specific, we will focus on the Object[] argument which is a string array that consists the users' option. In this case is “Yes” and “No”, OR “I do”
+and “I don’t”.
+Also, we add other arguments.
+Example code:
+    String[] options = {"I do", "I don't"};
+		int option = JOptionPane.showOptionDialog(null, 
+				"Do you want to change to the first class ticket?",
+          "Title", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+This will display a dialog box which asks the user if they want to change to the first class ticket, and provides two options to choose from: "I do" and "I don't"
