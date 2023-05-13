@@ -8,22 +8,14 @@ public class Aims {
         anOrder.addDVD(dvd1);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         anOrder.addDVD(dvd2);
-        cart2.addDVD(dvd2);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         anOrder.addDVD(dvd3);
-        cart2.addDVD(dvd3);
         
-        
-        // Print total cost of the items in the cart
-        System.out.println("The total cost is: ");
-        System.out.println(anOrder.totalCost());
-        System.out.println(cart2.totalCost());
-
-        // Check remove function
-//        anOrder.removeDVD(dvd1);
-//        System.out.println("The total cost is: ");
-//        System.out.println(anOrder.totalCost());
-        
-        
+        // Print cart
+        anOrder.printCart();
+        // Search by ID
+        anOrder.searchById(4);
+        // Search by title
+        anOrder.searchByTitle("Aladin");
     }
 }
