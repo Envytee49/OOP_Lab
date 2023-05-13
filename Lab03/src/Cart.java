@@ -16,15 +16,7 @@ public class Cart {
         dvdQuantity++;
         System.out.println("The disc has been added");
     }
-    public void addDVD(DigitalVideoDisc[] dvdList) {
-    	
-    }
-    public void addDVD(DigitalVideoDisc... arbitrary) {
-    	
-    }
-    public void addDVD(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
-    	
-    }
+
     public void removeDVD(DigitalVideoDisc disc) {
         if(dvdList.contains(disc)) {
         	dvdList.remove(disc);
