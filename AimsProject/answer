@@ -1,0 +1,12 @@
+1.- Which classes are aggregates of other classes?
+Cart is aggregate of Media. Store is aggregate of Media. CompactDisc is aggregate of Track
+2. . If the passing object is not an instance of Media, what happens? 
+If the passing object is not an instance of Media, equals() returns false.
+3. - What class should implement the Comparable interface?
+Class Media implements Comparable interface
+4. - In those classes, how should you implement the compareTo()method be to reflect the ordering that we want? 
+The compareTo() method needs to return a negative integer, zero, or a positive integer if the current object is less than, equal to, or greater than the specified object, respectively.
+5. - Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+No since Comparable interface is used for internal comparison and can be implemented only once by class Media.
+6. - Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this? 
+I override compareTo() method in DigitalVideoDisc.
