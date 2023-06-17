@@ -28,8 +28,9 @@ public class Store{
 	        }
 	        return sb.toString();
 	    }
-	public void display() {
-		System.out.println(this.toString());
+	
+	public ArrayList<Media> getItems() {
+		return items;
 	}
 	public void addDVD() {
 		System.out.println("Title:");String title = scanner.next();
@@ -102,5 +103,30 @@ public class Store{
 		return null;
 		// TODO Auto-generated method stub
 		
+	}
+	public ArrayList<Media> getItemsInStore() {
+		if(!items.isEmpty()) return items;
+		else
+			return null;
+	}
+
+	public void add(DigitalVideoDisc digitalVideoDisc) {
+		items.add(digitalVideoDisc);
+	}
+
+	public void add(Book book) {
+		// TODO Auto-generated method stub
+		items.add(book);
+	}
+
+	public void add(CompactDisc compactDisc) {
+		// TODO Auto-generated method stub
+		items.add(compactDisc);
+	}
+
+	public void addMedia(Media media) {
+		// TODO Auto-generated method stub
+		if(!items.contains(media))
+		items.add(media);
 	}
 }

@@ -1,17 +1,20 @@
 package hust.soict.dsai.aims;
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aism.helper.Helper;
+import hust.soict.globalict.aims.exception.PlayerException;
 
 public class Aims {
         public static Store store = new Store();
         public static Cart cart = new Cart();
         public static Scanner scanner = new Scanner(System.in);
         public static Helper helper = new Helper();
-        public static void showMenu() {
+        public static void showMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\nAIMS: ");
                 System.out.println("-----------------------------------------------------------------");
                 System.out.println("1.View Store");
@@ -22,7 +25,7 @@ public class Aims {
                 System.out.println("Please choose number: 0-1-2-3");
                 int option = helper.getOption();
                 switch(option) {
-                	case 1: store.display();
+                	case 1: System.out.println(store.toString());
                 			storeMenu();
                 			break;
                 	case 2: updateMenu();
@@ -34,7 +37,7 @@ public class Aims {
                 			break;
                 }
         }
-        public static void storeMenu() {
+        public static void storeMenu() throws LimitExceededException, PlayerException {
             System.out.println("\nSTORE MENU: ");
             System.out.println("-------------------------------------------------------------------");
             System.out.println("1.See a Media's details");
@@ -61,7 +64,7 @@ public class Aims {
             			break;
             }
     }	
-        public static void mediaDetailsMenu() {
+        public static void mediaDetailsMenu() throws LimitExceededException, PlayerException {
         	Media media = store.scanMedia();
         	if(media != null) {
         		System.out.println(media.toString());
@@ -88,7 +91,7 @@ public class Aims {
         	
     	
         }
-        public static void updateMenu() {
+        public static void updateMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\nUPDATE STORE MENU:");
                 System.out.println("---------------------------------------------------------------------");
                 System.out.println("1.Add a Media");
@@ -107,7 +110,7 @@ public class Aims {
                 			
                 }
         }
-        public static void addMediaMenu() {
+        public static void addMediaMenu() throws LimitExceededException, PlayerException {
             System.out.println("\nADD MEDIA MENU");
             System.out.println("---------------------------------------------------------------------");
             System.out.println("1.Add DVD");
@@ -134,7 +137,7 @@ public class Aims {
                             break;
             }
     }
-        public static void removeMediaMenu() {
+        public static void removeMediaMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\nOptions:");
                 System.out.println("---------------------------------------------------------------------");
                 System.out.println("1.Remove By ID");
@@ -156,7 +159,7 @@ public class Aims {
                 }
         }
 
-        public static void cartMenu() {
+        public static void cartMenu() throws LimitExceededException, PlayerException {
                 System.out.println("Options:");
                 System.out.println("--------------------------------");
                 System.out.println("1. Filter medias in cart");
@@ -189,7 +192,7 @@ public class Aims {
         }
 
         }
-        public static void removeMediaFromCartMenu() {
+        public static void removeMediaFromCartMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\n REMOVE MEDIA FROM CART MENU:");
                 System.out.println("---------------------------------------------------------------------");
                 System.out.println("1.Remove By ID");
@@ -211,7 +214,7 @@ public class Aims {
         }
         }
 
-        public static void filterMediaInCartMenu() {
+        public static void filterMediaInCartMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\nFILTER MEDIA IN CART MENU");
                 System.out.println("---------------------------------------");
                 System.out.println("1. Filter by title");
@@ -233,7 +236,7 @@ public class Aims {
         }
         }
 
-        public static void sortMediasInCartMenu() {
+        public static void sortMediasInCartMenu() throws LimitExceededException, PlayerException {
                 System.out.println("\nSORT MEDIA IN CART MENU:");
                 System.out.println("-----------------------");
                 System.out.println("1.Sort by Title");
@@ -257,7 +260,7 @@ public class Aims {
                
         }
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws LimitExceededException, PlayerException {
                 showMenu();
                 scanner.close();
         }

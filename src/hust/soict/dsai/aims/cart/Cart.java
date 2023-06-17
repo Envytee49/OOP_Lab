@@ -3,14 +3,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
+import hust.soict.dsai.aims.media.Book;
+import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aism.helper.Helper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Cart {
-    public static final int MAXIMUM_DVDS = 20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
-    private Helper helper = new Helper();
+	public static final int MAXIMUM_DVDS = 20;
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	private Helper helper = new Helper();
     private Scanner scanner = new Scanner(System.in);
+    public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+	public void setItemsOrdered(ObservableList<Media> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
     public void printCart() {
     	if(!itemsOrdered.isEmpty()) {
 	    	double totalCost = 0;
@@ -37,10 +50,15 @@ public class Cart {
         }
         return total;
     }
-	public void addMedia(Media media) {
-		if(!itemsOrdered.contains(media)) {
-			itemsOrdered.add(media);
+	public void addMedia(Media media) throws LimitExceededException {
+		if(itemsOrdered.size() < MAXIMUM_DVDS) {
+			if(!itemsOrdered.contains(media)) {
+				itemsOrdered.add(media);
+			}
+		}else {
+			throw new LimitExceededException("Error the number of media has reach its limti");
 		}
+		
 	}
 	public void placeOrder() {
 		System.out.println("An order is created");
@@ -96,6 +114,23 @@ public class Cart {
 		}
 		System.out.println("item does not exist");
 		return null;
+	}
+	public void removeMedia(Media media) {
+		itemsOrdered.remove(media);
+		
+	}
+	public void add(DigitalVideoDisc digitalVideoDisc) {
+		itemsOrdered.add(digitalVideoDisc);
+	}
+
+	public void add(Book book) {
+		// TODO Auto-generated method stub
+		itemsOrdered.add(book);
+	}
+
+	public void add(CompactDisc compactDisc) {
+		// TODO Auto-generated method stub
+		itemsOrdered.add(compactDisc);
 	}
     
 }

@@ -17,6 +17,13 @@ public class Book extends Media{
         this.authors = authors;
         bookID++;
 	}
+	public Book(String title, String category, float cost) {
+		this.setTitle(title);
+        this.setCategory(category); 
+        this.setId(bookID);
+        this.setCost(cost);
+        bookID++;
+	}
 	public void addAuthor(String authorName) {
 		if(!authors.contains(authorName)) {
 			authors.add(authorName);
@@ -31,9 +38,8 @@ public class Book extends Media{
 	public String toString() {
 		return authors.toString();
 	}
-	@Override
-	public void play() {
-	}
+
+
 	
 
 }

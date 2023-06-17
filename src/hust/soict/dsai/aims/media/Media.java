@@ -1,6 +1,8 @@
 package hust.soict.dsai.aims.media;
 
 import java.util.Comparator;
+
+import hust.soict.globalict.aims.exception.PlayerException;
 public abstract class Media {
 	private int id;
 	private String title;
@@ -35,7 +37,7 @@ public abstract class Media {
 	public Media() {
 		// TODO Auto-generated constructor stub
 	}
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj){
 		if (obj == null) {
             return false;
         }
@@ -52,6 +54,11 @@ public abstract class Media {
         return true;
     }
 	public abstract String toString();
-	public abstract void play();
+	public void play() throws PlayerException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }
